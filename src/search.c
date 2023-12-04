@@ -597,7 +597,8 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
         // anything from this move, we can skip all the remaining quiets
         if (   best > -TBWIN_IN_MAX
             && depth <= LateMovePruningDepth
-            && movesSeen >= LateMovePruningCounts[improving][depth])
+            && movesSeen >= LateMovePruningCounts[improving][depth]
+            && eval < alpha - 200)
             skipQuiets = 1;
 
         // Step 14 (~175 elo). Quiet Move Pruning. Prune any quiet move that meets one
