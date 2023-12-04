@@ -966,6 +966,9 @@ int evaluateKings(EvalInfo *ei, Board *board, int colour) {
         uint64_t queenChecks  = queenThreats  & safe & ei->attackedBy[THEM][QUEEN ];
 
         safety  = ei->kingAttackersWeight[US];
+        if (ei->kingAttackersCount[US] == 0) {
+        safety *= 1.5; // Scale up if no current attackers
+        }
 
         safety += SafetyAttackValue     * scaledAttackCounts
                 + SafetyWeakSquares     * popcount(weak & ei->kingAreas[US])
