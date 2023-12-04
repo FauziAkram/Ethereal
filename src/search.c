@@ -497,6 +497,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
     if (   !PvNode
         && !inCheck
         && !ns->excluded
+        &&  improving
         &&  depth <= AlphaPruningDepth
         &&  eval + AlphaMargin <= alpha)
         return eval;
