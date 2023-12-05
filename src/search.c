@@ -156,7 +156,7 @@ void initSearch() {
 
     for (int depth = 1; depth <= 10; depth++) {
         LateMovePruningCounts[0][depth] = 2.0767 + 0.3743 * depth * depth;
-        LateMovePruningCounts[1][depth] = 3.8733 + 0.7124 * depth * depth;
+        LateMovePruningCounts[1][depth] = 3.8733 + 0.7124 * depth * depth + 0.4 * depth;
     }
 }
 
