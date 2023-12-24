@@ -317,6 +317,8 @@ void aspirationWindow(Thread *thread) {
         // Expand the search window
         if (pv.score <= alpha)
         delta = delta + delta / 2;
+        else
+        delta = delta + delta / 4;
     }
 }
 
