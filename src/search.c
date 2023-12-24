@@ -315,7 +315,7 @@ void aspirationWindow(Thread *thread) {
         }
 
         // Expand the search window
-        delta = delta + delta / 2;
+        delta = delta + delta / 3;
     }
 }
 
