@@ -155,8 +155,8 @@ void initSearch() {
             LMRTable[depth][played] = 0.7844 + log(depth) * log(played) / 2.4696;
 
     for (int depth = 1; depth <= 10; depth++) {
-        LateMovePruningCounts[0][depth] = 2.0767 + 0.3743 * depth * depth;
-        LateMovePruningCounts[1][depth] = 3.8733 + 0.7124 * depth * depth;
+        LateMovePruningCounts[0][depth] = 2.0767 + 0.3780 * depth * depth;
+        LateMovePruningCounts[1][depth] = 3.8733 + 0.7150 * depth * depth;
     }
 }
 
@@ -315,7 +315,7 @@ void aspirationWindow(Thread *thread) {
         }
 
         // Expand the search window
-        delta = delta + delta / 2;
+        delta = delta + delta / 3;
     }
 }
 
@@ -698,7 +698,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
                 R -= ns->mp.stage < STAGE_QUIET;
 
                 // Adjust based on history scores
-                R -= MAX(-2, MIN(2, hist / 6167));
+                R -= MAX(-2, MIN(2, hist / 6147));
             }
 
             // Step 18B (~3 elo). Noisy Late Move Reductions. The same as Step 18A, but
