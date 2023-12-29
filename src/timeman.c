@@ -97,7 +97,7 @@ bool tm_finished(const Thread *thread, const TimeManager *tm) {
     if (thread->completed < 4) return FALSE;
 
     // Scale time between 80% and 120%, based on stable best moves
-    const double pv_factor = 1.20 - 0.04 * tm->pv_stability;
+    const double pv_factor = 1.28 - 0.04 * tm->pv_stability;
 
     // Scale time between 75% and 125%, based on score fluctuations
     const double score_change = thread->pvs[thread->completed-3].score
