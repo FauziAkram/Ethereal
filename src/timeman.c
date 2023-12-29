@@ -102,7 +102,7 @@ bool tm_finished(const Thread *thread, const TimeManager *tm) {
     // Scale time between 75% and 125%, based on score fluctuations
     const double score_change = thread->pvs[thread->completed-3].score
                               - thread->pvs[thread->completed-0].score;
-    const double score_factor = MAX(0.75, MIN(1.25, 0.05 * score_change));
+    const double score_factor = MAX(0.80, MIN(1.25, 0.05 * score_change));
 
     // Scale time between 50% and 240%, based on where nodes have been spent
     const uint64_t best_nodes = tm->nodes[thread->pvs[thread->completed-0].line[0]];
