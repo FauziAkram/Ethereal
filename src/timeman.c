@@ -24,10 +24,8 @@
 #include "types.h"
 #include "uci.h"
 
-double first = 2.50;
-double second = 10.00;
-first, float, 2.50, 1.00, 6.00, 0.30, 0.002;
-second, float, 10.00, 1.00, 6.00, 0.30, 0.002;
+double xx1=2.50, xx2=10.00, xx3=1.20, xx4=0.04, xx5=0.75, xx6=1.25, xx7=0.05, xx8=0.50, xx9=0.40;
+int zz1=25, zz2=25, zz3=50, zz4=50;
 
 int MoveOverhead = 300; // Set by UCI options
 
@@ -68,8 +66,8 @@ void tm_init(const Limits *limits, TimeManager *tm) {
 
         // Playing using X + Y time controls
         else {
-            tm->ideal_usage =  first * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
-            tm->max_usage   = second * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
+            tm->ideal_usage = xx1 * ((limits->time - MoveOverhead) + zz1 * limits->inc) / zz3;
+            tm->max_usage   = xx2 * ((limits->time - MoveOverhead) + zz2 * limits->inc) / zz4;
         }
 
         // Cap time allocations using the move overhead
@@ -102,17 +100,17 @@ bool tm_finished(const Thread *thread, const TimeManager *tm) {
     if (thread->completed < 4) return FALSE;
 
     // Scale time between 80% and 120%, based on stable best moves
-    const double pv_factor = 1.20 - 0.04 * tm->pv_stability;
+    const double pv_factor = xx3 - xx4 * tm->pv_stability;
 
     // Scale time between 75% and 125%, based on score fluctuations
     const double score_change = thread->pvs[thread->completed-3].score
                               - thread->pvs[thread->completed-0].score;
-    const double score_factor = MAX(0.75, MIN(1.25, 0.05 * score_change));
+    const double score_factor = MAX(xx5, MIN(xx6, xx7 * score_change));
 
     // Scale time between 50% and 240%, based on where nodes have been spent
     const uint64_t best_nodes = tm->nodes[thread->pvs[thread->completed-0].line[0]];
     const double non_best_pct = 1.0 - ((double) best_nodes / thread->nodes);
-    const double nodes_factor = MAX(0.50, 2 * non_best_pct + 0.4);
+    const double nodes_factor = MAX(xx8, 2 * non_best_pct + xx9);
 
     return elapsed_time(tm) > tm->ideal_usage * pv_factor * score_factor * nodes_factor;
 }
