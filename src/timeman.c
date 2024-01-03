@@ -24,8 +24,8 @@
 #include "types.h"
 #include "uci.h"
 
-first, float, 2.50, 1.00, 6.00, 0.30, 0.002
-second, float, 10.00, 1.00, 6.00, 0.30, 0.002
+first, float, 2.50, 1.00, 6.00, 0.30, 0.002;
+second, float, 10.00, 1.00, 6.00, 0.30, 0.002;
 
 int MoveOverhead = 300; // Set by UCI options
 
