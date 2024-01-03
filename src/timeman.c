@@ -24,6 +24,8 @@
 #include "types.h"
 #include "uci.h"
 
+float first = 2.50;
+float second = 10.00;
 first, float, 2.50, 1.00, 6.00, 0.30, 0.002;
 second, float, 10.00, 1.00, 6.00, 0.30, 0.002;
 
