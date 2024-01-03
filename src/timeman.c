@@ -63,7 +63,7 @@ void tm_init(const Limits *limits, TimeManager *tm) {
 
         // Playing using X + Y time controls
         else {
-            tm->ideal_usage =  2.50 * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
+            tm->ideal_usage =  2.48 * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
             tm->max_usage   = 10.00 * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
         }
 
@@ -97,12 +97,12 @@ bool tm_finished(const Thread *thread, const TimeManager *tm) {
     if (thread->completed < 4) return FALSE;
 
     // Scale time between 80% and 120%, based on stable best moves
-    const double pv_factor = 1.20 - 0.04 * tm->pv_stability;
+    const double pv_factor = 1.19 - 0.043 * tm->pv_stability;
 
     // Scale time between 75% and 125%, based on score fluctuations
     const double score_change = thread->pvs[thread->completed-3].score
                               - thread->pvs[thread->completed-0].score;
-    const double score_factor = MAX(0.75, MIN(1.25, 0.05 * score_change));
+    const double score_factor = MAX(0.74, MIN(1.25, 0.052 * score_change));
 
     // Scale time between 50% and 240%, based on where nodes have been spent
     const uint64_t best_nodes = tm->nodes[thread->pvs[thread->completed-0].line[0]];
