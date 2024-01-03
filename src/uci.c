@@ -42,6 +42,24 @@
 #include "uci.h"
 #include "zobrist.h"
 
+
+TUNEABLE float xx1 = 2.50;
+TUNEABLE float xx2 = 10.00;
+TUNEABLE float xx3 = 1.20;
+TUNEABLE float xx4 = 0.04;
+TUNEABLE float xx5 = 0.75;
+TUNEABLE float xx6 = 1.25;
+TUNEABLE float xx7 = 0.05;
+TUNEABLE float xx8 = 0.50;
+TUNEABLE float xx9 = 0.40;
+TUNEABLE int zz1 = 25;
+TUNEABLE int zz2 = 25;
+TUNEABLE int zz3 = 50;
+TUNEABLE int zz4 = 50;
+
+float xx1=2.50, xx2=10.00, xx3=1.20, xx4=0.04, xx5=0.75, xx6=1.25, xx7=0.05, xx8=0.50, xx9=0.40;
+int zz1=25, zz2=25, zz3=50, zz4=50;
+
 int NORMALIZE_EVAL = 1;
 
 extern int MoveOverhead;          // Defined by time.c
