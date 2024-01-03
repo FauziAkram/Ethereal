@@ -28,6 +28,8 @@ extern TUNEABLE float xx1;
 extern TUNEABLE float xx2;
 extern TUNEABLE int zz1;
 extern TUNEABLE int zz2;
+extern TUNEABLE int zz3;
+extern TUNEABLE int zz4;
 extern TUNEABLE float xx3;
 extern TUNEABLE float xx4;
 extern TUNEABLE float xx5;
