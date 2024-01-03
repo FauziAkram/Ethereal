@@ -24,6 +24,9 @@
 #include "types.h"
 #include "uci.h"
 
+first, float, 2.50, 1.00, 6.00, 0.30, 0.002
+second, float, 10.00, 1.00, 6.00, 0.30, 0.002
+
 int MoveOverhead = 300; // Set by UCI options
 
 double get_real_time() {
@@ -63,8 +66,8 @@ void tm_init(const Limits *limits, TimeManager *tm) {
 
         // Playing using X + Y time controls
         else {
-            tm->ideal_usage =  2.50 * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
-            tm->max_usage   = 10.00 * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
+            tm->ideal_usage =  first * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
+            tm->max_usage   = second * ((limits->time - MoveOverhead) + 25 * limits->inc) / 50;
         }
 
         // Cap time allocations using the move overhead
