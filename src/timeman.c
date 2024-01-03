@@ -24,7 +24,18 @@
 #include "types.h"
 #include "uci.h"
 
-double xx1=2.50, xx2=10.00, xx3=1.20, xx4=0.04, xx5=0.75, xx6=1.25, xx7=0.05, xx8=0.50, xx9=0.40;
+extern TUNEABLE float xx1;
+extern TUNEABLE float xx2;
+extern TUNEABLE int zz1;
+extern TUNEABLE int zz2;
+extern TUNEABLE float xx3;
+extern TUNEABLE float xx4;
+extern TUNEABLE float xx5;
+extern TUNEABLE float xx6;
+extern TUNEABLE float xx7;
+extern TUNEABLE float xx8;
+extern TUNEABLE float xx9;
+float xx1=2.50, xx2=10.00, xx3=1.20, xx4=0.04, xx5=0.75, xx6=1.25, xx7=0.05, xx8=0.50, xx9=0.40;
 int zz1=25, zz2=25, zz3=50, zz4=50;
 
 int MoveOverhead = 300; // Set by UCI options
