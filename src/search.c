@@ -451,6 +451,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
 
     // We can grab in check based on the already computed king attackers bitboard
     inCheck = !!board->kingAttackers;
+    ns->inCheck = inCheck;
 
     // Save a history of the static evaluations when not checked
     eval = ns->eval = inCheck ? VALUE_NONE
