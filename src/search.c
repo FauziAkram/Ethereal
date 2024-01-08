@@ -802,6 +802,7 @@ int qsearch(Thread *thread, PVariation *pv, int alpha, int beta) {
 
     Board *const board  = &thread->board;
     NodeState *const ns = &thread->states[thread->height];
+    ns->inCheck = !!board->kingAttackers;
 
     int eval, value, best, oldAlpha = alpha;
     int ttHit, ttValue = 0, ttEval = VALUE_NONE, ttDepth = 0, ttBound = 0;
