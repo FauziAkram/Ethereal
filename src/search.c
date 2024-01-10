@@ -707,7 +707,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
             else {
 
                 // Initialize R based on Capture History
-                R = 3 - (hist / 4952);
+                R = 5 - MAX(0, MIN(4, hist / 1200));
 
                 // Reduce for moves that give check
                 R -= !!board->kingAttackers;
