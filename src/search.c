@@ -532,7 +532,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
     if (   !PvNode
         && !inCheck
         && !ns->excluded
-        &&  depth > (ProbCutDepth - 1)
+        &&  depth > (ProbCutDepth + 1)
         &&  abs(beta) < TBWIN_IN_MAX
         && (!ttHit || ttValue >= rBeta || ttDepth < depth - 3)) {
 
