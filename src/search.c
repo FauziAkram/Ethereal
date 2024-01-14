@@ -606,7 +606,7 @@ int search(Thread *thread, PVariation *pv, int alpha, int beta, int depth, bool 
 
             // Base LMR reduced depth value that we expect to use later
             int lmrDepth = MAX(0, depth - LMRTable[MIN(depth, 63)][MIN(played, 63)]);
-            int fmpMargin = FutilityMarginBase + lmrDepth * FutilityMarginPerDepth;
+            int fmpMargin = FutilityMarginBase + lmrDepth * FutilityMarginPerDepth + MAX(0, -thread->pvs[thread->completed].score / 200);
 
             // Step 14A (~3 elo). Futility Pruning. If our score is far below alpha,
             // and we don't expect anything from this move, we can skip all other quiets
